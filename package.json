@@ -1,0 +1,14 @@
+{
+  "name": "ai-test-demo-shop",
+  "version": "1.0.0",
+  "scripts": {
+    "start":"node src/server.js",
+    "test":"playwright test"
+  },
+  "dependencies":{
+    "express":"latest"
+  },
+  "devDependencies":{
+    "@playwright/test":"latest"
+  }
+}
