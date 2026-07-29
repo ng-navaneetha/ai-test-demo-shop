@@ -2,14 +2,13 @@
   "name": "ai-test-demo-shop",
   "version": "1.0.0",
   "scripts": {
-    "start": "node src/server.js",
-    "test": "playwright test"
+    "start":"node src/server.js",
+    "test":"playwright test"
   },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "express": "latest"
+  "dependencies":{
+    "express":"latest"
   },
-  "devDependencies": {
-    "@playwright/test": "latest"
+  "devDependencies":{
+    "@playwright/test":"latest"
   }
 }

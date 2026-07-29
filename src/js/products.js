@@ -17,7 +17,7 @@ const products = [
 ];
 
 
-let cart = {};
+let cart = [];
 
 
 function displayProducts(){
@@ -73,6 +73,7 @@ function displayProducts(){
     .querySelectorAll(".add-cart")
     .forEach(button=>{
 
+
         button.onclick=function(){
 
             const id =
@@ -93,50 +94,25 @@ function displayProducts(){
 
 
 
-
 function addToCart(productId){
 
-    const product = products.find(p=>p.id===productId);
-
-    // track counts per product id
-    if(!cart[productId]){
-        cart[productId] = {
-            product: product,
-            count: 0
-        };
-    }
-
-    cart[productId].count += 1;
-
-    renderCart();
-
-}
+    const product =
+    products.find(
+        p=>p.id===productId
+    );
 
 
-function renderCart(){
-    // total item count (sum of counts)
-    const totalItems = Object.values(cart).reduce((s,i)=>s + i.count, 0);
+    cart.push(product);
 
-    document.getElementById("cart-count").innerText = totalItems;
-    document.getElementById("cart-total-items").innerText = totalItems;
 
-    // render list of items with counts
-    const list = document.getElementById("cart-items-list");
-    list.innerHTML = '';
+    document
+    .getElementById(
+        "cart-count"
+    )
+    .innerText =
+    cart.length;
 
-    let totalPrice = 0;
 
-    Object.values(cart).forEach(entry =>{
-        const li = document.createElement('li');
-        const name = entry.product.name;
-        const count = entry.count;
-        const price = entry.product.price * count;
-        totalPrice += price;
-        li.innerText = `${name} — ${count} x $${entry.product.price} = $${price}`;
-        list.appendChild(li);
-    });
-
-    document.getElementById('cart-total-price').innerText = totalPrice;
 }
 
 
